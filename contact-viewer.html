@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Data Kontak Masuk - CoreLink</title>
+  <link rel="stylesheet" href="contact-viewer.css">
+</head>
+<body>
+
+  <h1>Data Kontak Masuk</h1>
+
+  <button class="reset-btn" onclick="resetData()">Reset Semua Data</button>
+
+  <div id="data-container">
+    <!-- Data akan ditampilkan di sini -->
+  </div>
+
+  <script>
+    function loadSubmissions() {
+      const container = document.getElementById('data-container');
+      const stored = localStorage.getItem('contactSubmissions');
+      const data = stored ? JSON.parse(stored) : [];
+
+      if (data.length === 0) {
+        container.innerHTML = "<p>Belum ada data yang masuk.</p>";
+        return;
+      }
+
+      data.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = 'submission';
+        div.innerHTML = `
+          <strong>Data ke-${index + 1}</strong><br>
+          Nama: ${item.firstName} ${item.lastName}<br>
+          Email: ${item.email}<br>
+          Pesan: ${item.message}
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function resetData() {
+      if (confirm("Yakin ingin menghapus semua data?")) {
+        localStorage.removeItem("contactSubmissions");
+        location.reload();
+      }
+    }
+
+    loadSubmissions();
+  </script>
+
+</body>
+</html>

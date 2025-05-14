@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mengapa Memilih Kami - CoreLink</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="wcu.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-white text-gray-800 font-poppins">
+
+  <!-- nav -->
+    <nav class="navbar">
+    <a href="index.html" class="logo">CoreLink</a>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="navMenu">
+      <li><a href="wcu.html">Why Choose Us</a></li>
+      <li><a href="index.html#layanankami">Layanan Kami</a></li>
+      <li><a href="industri.html">Industries</a></li>
+      <li><a href="index.html#hubungi-kami">Hubungi Kami</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Mengapa Memilih Corelink Networks?</h1>
+  </section>
+
+  <!-- Alasan Section -->
+  <section class="why-corelink">
+    <div class="reason">
+      <h2>01.</h2>
+      <p>Situs ini berfungsi sebagai penyedia layanan internet (Internet Service Provider/ISP) yang menyediakan 
+        koneksi jaringan dan akses internet untuk berbagai lokasi seperti kantor, sekolah, rumah, maupun tempat lainnya.</p>
+    </div>
+    <div class="reason">
+      <h2>02.</h2>
+      <p>Situs ini menyediakan layanan internet berkecepatan tinggi dengan jangkauan luas untuk mendukung kebutuhan 
+        komunikasi dan konektivitas di berbagai lingkungan.</p>
+    </div>
+    <div class="reason">
+      <h2>03.</h2>
+      <p>Layanan pelanggan yang responsif dan profesional untuk memastikan pengalaman pengguna yang mulus dan kualitas koneksi yang handal.</p>
+    </div>
+    <div class="reason reveal">
+      <h2>04.</h2>
+      <p>Fasilitas teknologi terkini dan infrastruktur yang handal untuk menjamin kualitas layanan yang prima dan ketersediaan jaringan yang stabil.</p>
+    </div>
+    <div class="reason reveal">
+      <h2>05.</h2>
+      <p>Pilihan paket layanan yang fleksibel dan disesuaikan dengan kebutuhan spesifik setiap pelanggan untuk memberikan solusi yang optimal.</p>
+    </div>
+  </section>
+
+  <!-- Sidebar Social -->
+  <div class="social-sidebar">
+    <a href="#">f</a>
+    <a href="#">t</a>
+    <a href="#">in</a>
+  </div>
+
+  <!-- Floating Search Button -->
+  <div class="search-button">
+    <button>🔍</button>
+  </div>
+
+<!-- Footer Contact Us -->
+<footer class="footer reveal" id="hubungi-kami">
+  <div class="footer-container">
+    <h2>Hubungi Kami</h2>
+    <form id="contactForm">
+      <div class="form-row">
+        <input type="text" id="firstName" placeholder="First Name*" required>
+        <input type="text" id="lastName" placeholder="Last Name*" required>
+      </div>
+      <input type="email" id="email" placeholder="Email*" required>
+      <textarea id="message" placeholder="Message" rows="4"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="contact-info">
+      <p><strong>Alamat:</strong> Jl. Purwodadi No.Kelurahan, Sidomulyo Bar., Kec. Tuah, Kota Pekanbaru, Riau 28294</p>
+      <p><strong>Email:</strong> fadilmuhammad200808@gmail.com</p>
+      <p><strong>Tel:</strong> 088742561603</p>
+    </div>
+
+    <div class="scroll-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+      &#x25B2;
+    </div>
+
+    <div class="copyright">
+      &copy; 2025 Corelink Networks. Developed by Fadil Muhammad. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+
+</body>
+
+<!-- Script untuk Navigasi -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('navMenu');
+      menu.classList.toggle('active');
+    }
+  </script>
+
+
+    <!-- Script untuk Contact Form (Simpan ke localStorage) -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("contactForm");
+
+    if (form) {
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const firstName = document.getElementById("firstName").value.trim();
+        const lastName = document.getElementById("lastName").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        if (!firstName || !lastName || !email) {
+          alert("Mohon lengkapi semua field yang wajib diisi.");
+          return;
+        }
+
+        const contactData = {
+          firstName,
+          lastName,
+          email,
+          message,
+          time: new Date().toISOString()
+        };
+
+        let submissions = JSON.parse(localStorage.getItem("contactSubmissions")) || [];
+        submissions.push(contactData);
+        localStorage.setItem("contactSubmissions", JSON.stringify(submissions));
+
+        alert("Pesan berhasil dikirim. Terima kasih!");
+        form.reset();
+      });
+    }
+  });
+</script>
+
+<script>
+  // Scroll Reveal
+  function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+    for (let i = 0; i < reveals.length; i++) {
+      const windowHeight = window.innerHeight;
+      const revealTop = reveals[i].getBoundingClientRect().top;
+      const revealPoint = 150;
+
+      if (revealTop < windowHeight - revealPoint) {
+        reveals[i].classList.add('active');
+      } else {
+        reveals[i].classList.remove('active');
+      }
+    }
+  }
+  window.addEventListener('scroll', revealOnScroll);
+
+  // Scroll to Top
+  const scrollBtn = document.getElementById("scrollBtn");
+  window.onscroll = function () {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      scrollBtn.style.display = "block";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  };
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+
+</html>

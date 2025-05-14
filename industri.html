@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Industries - CoreLink Networks</title>
+  <link rel="stylesheet" href="industri.css">
+</head>
+<body>
+
+  <!-- nav -->
+    <nav class="navbar">
+    <a href="index.html" class="logo">CoreLink</a>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="navMenu">
+      <li><a href="wcu.html">Why Choose Us</a></li>
+      <li><a href="index.html#layanankami">Layanan Kami</a></li>
+      <li><a href="industri.html">Industries</a></li>
+      <li><a href="index.html#hubungi-kami">Hubungi Kami</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" style="background-image: url('https://static.wixstatic.com/media/ea71bb_012ae925271140399a49859f76b6470e~mv2_d_7137_4763_s_4_2.jpg/v1/fill/w_1632,h_962,al_t,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ea71bb_012ae925271140399a49859f76b6470e~mv2_d_7137_4763_s_4_2.jpg');">
+    <div class="hero-text">
+      <h1>Industri yang Kami Layani</h1>
+    </div>
+  </section>
+
+  <!-- CONTENT SECTION -->
+  <section class="content">
+    <div class="industry-item">
+      <h2>01.</h2>
+      <p>Kami melayani sektor kesehatan dengan jaringan yang handal dan aman untuk mendukung operasional rumah sakit dan klinik.</p>
+    </div>
+    <div class="industry-item">
+      <h2>02.</h2>
+      <p>Industri keuangan seperti bank dan fintech menggunakan solusi kami untuk menjamin keamanan dan kecepatan data.</p>
+    </div>
+    <div class="industry-item">
+      <h2>03.</h2>
+      <p>Pendidikan, ritel, dan pemerintahan juga termasuk sektor yang kami bantu transformasikan secara digital.</p>
+    </div>
+  </section>
+
+<!-- Footer Contact Us -->
+<footer class="footer reveal" id="hubungi-kami">
+  <div class="footer-container">
+    <h2>Hubungi Kami</h2>
+    <form id="contactForm">
+      <div class="form-row">
+        <input type="text" id="firstName" placeholder="First Name*" required>
+        <input type="text" id="lastName" placeholder="Last Name*" required>
+      </div>
+      <input type="email" id="email" placeholder="Email*" required>
+      <textarea id="message" placeholder="Message" rows="4"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="contact-info">
+      <p><strong>Alamat:</strong> Jl. Purwodadi No.Kelurahan, Sidomulyo Bar., Kec. Tuah, Kota Pekanbaru, Riau 28294</p>
+      <p><strong>Email:</strong> fadilmuhammad200808@gmail.com</p>
+      <p><strong>Tel:</strong> 088742561603</p>
+    </div>
+
+    <div class="scroll-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+      &#x25B2;
+    </div>
+
+    <div class="copyright">
+      &copy; 2025 Corelink Networks. Developed by Fadil Muhammad. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+
+
+</body>
+
+<!-- Script untuk Navigasi -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('navMenu');
+      menu.classList.toggle('active');
+    }
+  </script>
+
+    <!-- Script untuk Contact Form (Simpan ke localStorage) -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("contactForm");
+
+    if (form) {
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const firstName = document.getElementById("firstName").value.trim();
+        const lastName = document.getElementById("lastName").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        if (!firstName || !lastName || !email) {
+          alert("Mohon lengkapi semua field yang wajib diisi.");
+          return;
+        }
+
+        const contactData = {
+          firstName,
+          lastName,
+          email,
+          message,
+          time: new Date().toISOString()
+        };
+
+        let submissions = JSON.parse(localStorage.getItem("contactSubmissions")) || [];
+        submissions.push(contactData);
+        localStorage.setItem("contactSubmissions", JSON.stringify(submissions));
+
+        alert("Pesan berhasil dikirim. Terima kasih!");
+        form.reset();
+      });
+    }
+  });
+</script>
+
+<script>
+  // Scroll Reveal
+  function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+    for (let i = 0; i < reveals.length; i++) {
+      const windowHeight = window.innerHeight;
+      const revealTop = reveals[i].getBoundingClientRect().top;
+      const revealPoint = 150;
+
+      if (revealTop < windowHeight - revealPoint) {
+        reveals[i].classList.add('active');
+      } else {
+        reveals[i].classList.remove('active');
+      }
+    }
+  }
+  window.addEventListener('scroll', revealOnScroll);
+
+  // Scroll to Top
+  const scrollBtn = document.getElementById("scrollBtn");
+  window.onscroll = function () {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      scrollBtn.style.display = "block";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  };
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+
+</html>

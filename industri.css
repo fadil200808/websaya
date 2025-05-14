@@ -1,0 +1,229 @@
+/* Reset & Font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #001e5a;
+    }
+
+      /* Reveal on Scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.3s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: white;
+      border-bottom: 3px solid #001e5a;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 20px;
+      text-decoration: none;
+      color: #000; /* atau biru tua */
+      padding: 5px 10px;
+      border: 2px solid #001e5a;
+      border-radius: 6px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .logo:hover {
+      background-color: #001e5a;
+      color: white;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li {
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #001e5a;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ff0000;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: #001e5a;
+      cursor: pointer;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 40px;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    /* Hero Section */
+    .hero {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    }
+
+    .hero-text {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    }
+
+    .hero-text h1 {
+    font-size: 2rem;
+    color: #003366;
+    text-align: center;
+    }
+
+    /* Content Section */
+    .content {
+    padding: 3rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    }
+
+    .industry-item {
+    margin-bottom: 2rem;
+    }
+
+    .industry-item h2 {
+    font-size: 1.5rem;
+    color: #003366;
+    }
+
+    .industry-item p {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    }
+
+    /* foot contact us */
+    .footer {
+      background-color: #001e5a;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .footer h2 {
+      margin-bottom: 30px;
+    }
+
+    .footer form {
+      display: grid;
+      gap: 15px;
+      max-width: 600px;
+      margin: 30px auto;
+    }
+
+    .footer .form-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .footer input,
+    .footer textarea {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-bottom: 2px solid white;
+      background: transparent;
+      color: white;
+    }
+
+    .footer button {
+      padding: 12px 30px;
+      background-color: white;
+      color: #001e5a;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .footer button:hover {
+      background-color: #f0f0f0;
+    }
+
+    .footer .contact-info {
+      margin-top: 40px;
+      font-size: 14px;
+    }
+
+    .footer .scroll-top {
+      margin-top: 20px;
+      font-size: 20px;
+      cursor: pointer;
+      display: inline-block;
+      color: white;
+      transition: transform 0.3s;
+    }
+
+    .footer .scroll-top:hover {
+      transform: translateY(-5px);
+    }
+
+    .footer .copyright {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #cccccc;
+    }
+
+
+

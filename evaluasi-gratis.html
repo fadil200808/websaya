@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evaluasi Gratis | CoreLink Networks</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #001e5a;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      background-color: #012472;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      position: relative;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: transparent;
+      border: none;
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      color: #ff4d4d;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #888;
+    }
+
+    button {
+      padding: 14px;
+      background-color: red;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #cc0000;
+    }
+
+    .footer-info {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 13px;
+      color: #ccc;
+    }
+
+    #success-message {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 16px;
+      color: #00ffcc;
+      font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="close-btn" title="Kembali ke Beranda">&times;</a>
+    <h1>Connecting You to the World</h1>
+    <form action="https://formsubmit.co/fadilmuhammad200808@gmail.com" method="POST" onsubmit="showSuccess()">
+      <input type="text" name="firstName" placeholder="First Name*" required>
+      <input type="text" name="lastName" placeholder="Last Name*" required>
+      <input type="email" name="email" placeholder="Email*" required>
+      <input type="text" name="subject" placeholder="Subject">
+      <input type="tel" name="phone" placeholder="Phone">
+      <input type="text" name="address" placeholder="Address">
+      <textarea name="message" placeholder="Message" rows="4"></textarea>
+
+      <!-- Redirect setelah submit -->
+      <input type="hidden" name="_next" value="https://corelinknetworks.com/index.html">
+      <input type="hidden" name="_captcha" value="false">
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="success-message">Terima kasih! Formulir berhasil dikirim.</div>
+
+    <div class="footer-info">
+      Jl. Purwodadi No.Kelurahan, Sidomulyo Bar., Kec. Tuah, Kota Pekanbaru, Riau 28294<br>
+      Tel: 088742561603 — Email. fadilmuhammad200808@gmail.com
+    </div>
+  </div>
+
+  <script>
+    function showSuccess() {
+      document.querySelector("form").style.display = "none";
+      document.getElementById("success-message").style.display = "block";
+    }
+  </script>
+</body>
+</html>
